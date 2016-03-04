@@ -3,3 +3,5 @@ bin/
 obj/
 project/packages/
 desktop.ini
+Project/ThirdParty/Include
+Project/ThirdParty/lib
