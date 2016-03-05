@@ -4,4 +4,8 @@ obj/
 project/packages/
 desktop.ini
 Project/ThirdParty/Include
+<<<<<<< HEAD
 Project/ThirdParty/lib
+=======
+Project/ThirdParty/lib
+>>>>>>> future/MrKH

@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\chunks">
+      <UniqueIdentifier>{e29890b8-6b0e-43cf-b742-af524ca36a17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\common">
+      <UniqueIdentifier>{c380ff96-f3b7-422f-aa05-f7d6ee1318c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\ifce">
+      <UniqueIdentifier>{69ecf0aa-9a5f-422f-9d1f-11de41c1f0c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\sdbg">
+      <UniqueIdentifier>{d5bb1952-7a0e-458a-ab07-81a9f305cd2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\sfi0">
+      <UniqueIdentifier>{bfdb8352-a8e7-4c17-86f8-e0dc38356ec7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\shex">
+      <UniqueIdentifier>{bb51ad1d-f585-4f71-8c2e-0b4133a90b94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\stat">
+      <UniqueIdentifier>{4c0cfbfc-91d7-4460-862e-314ddde7d9b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\xsgn">
+      <UniqueIdentifier>{c15b5b5e-e680-4c98-9ab8-f942c59fa36a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\rdef">
+      <UniqueIdentifier>{aa25d79d-3c6e-4795-b0ad-019e9fc6ba93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{f8bd32a7-b390-4b12-b338-496f5c5dd9ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\shex\tokens">
+      <UniqueIdentifier>{ec4bfa84-db13-4c28-9b4e-b6f1215ec050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\fwd">
+      <UniqueIdentifier>{2ac94dc7-b383-45ad-b774-b552bb811e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\chunks\spdb">
+      <UniqueIdentifier>{d1c15bb4-c503-450d-adff-f213e636506d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="DxbcContainer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="DxbcContainerHeader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\ChunkType.h">
+      <Filter>src\chunks</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\DxbcChunk.h">
+      <Filter>src\chunks</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\ComponentMask.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\Primitive.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\PrimitiveTopology.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\ProgramType.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\ResourceReturnType.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\ShaderVersion.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\TessellatorDomain.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\TessellatorOutputPrimitive.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Common\TessellatorPartitioning.h">
+      <Filter>src\chunks\common</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Ifce\ClassInstance.h">
+      <Filter>src\chunks\ifce</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Ifce\ClassType.h">
+      <Filter>src\chunks\ifce</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Ifce\InterfacesChunk.h">
+      <Filter>src\chunks\ifce</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Ifce\InterfaceSlot.h">
+      <Filter>src\chunks\ifce</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ConstantBuffer.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ConstantBufferFlags.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ConstantBufferType.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ResourceBinding.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ResourceDefinitionChunk.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderFlags.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderInputFlags.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderInputType.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderResourceViewDimension.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderType.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderTypeMember.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderVariable.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderVariableClass.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderVariableFlags.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Rdef\ShaderVariableType.h">
+      <Filter>src\chunks\rdef</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Sdbg\DebuggingChunk.h">
+      <Filter>src\chunks\sdbg</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Sfi0\Sfi0Chunk.h">
+      <Filter>src\chunks\sfi0</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Stat\StatisticsChunk.h">
+      <Filter>src\chunks\stat</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\InputOutputSignatureChunk.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\InputSignatureChunk.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\Name.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\OutputSignatureChunk.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\PatchConstantSignatureChunk.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\RegisterComponentType.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\SignatureElementSize.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Xsgn\SignatureParameterDescription.h">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\BytecodeReader.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Decoder.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\GeometryShaderMaxOutputVertexCountDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\GeometryShaderOutputPrimitiveTopologyDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\GlobalFlagsDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\HullShaderForkPhaseInstanceCountDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\HullShaderMaxTessFactorDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ImmediateConstantBufferDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ConstantBufferDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ControlPointCountDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\CustomDataToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\TempRegisterDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\TessellatorDomainDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\TessellatorOutputPrimitiveDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\TessellatorPartitioningDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ThreadGroupDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\TypedUnorderedAccessViewDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\UnorderedAccessViewDeclarationTokenBase.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ResourceDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ResourceReturnTypeToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\SamplerDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ShaderMessageDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\StructuredShaderResourceViewDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\StructuredThreadGroupSharedMemoryDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\StructuredUnorderedAccessViewDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\Operand.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\OperandIndex.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\OutputRegisterDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\PixelShaderInputRegisterDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\RawShaderResourceViewDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\RawThreadGroupSharedMemoryDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\RawUnorderedAccessViewDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\ImmediateDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\IndexableTempRegisterDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\IndexingRangeDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\InputRegisterDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\InstructionToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\InterfaceDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\NameToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\OpcodeToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\DeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\FunctionBodyDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\FunctionTableDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\GeometryShaderInputPrimitiveDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Tokens\GeometryShaderInstanceCountDeclarationToken.h">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\CustomDataClass.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\SyncFlags.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\SystemValueName.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\UnorderedAccessViewCoherency.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\ResourceDimension.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\SamplerMode.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\ShaderMessageFormat.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\ShaderProgramChunk.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\OpcodeType.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Operand4ComponentName.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Operand4ComponentSelectionMode.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\OperandIndexDimension.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\OperandIndexRepresentation.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\OperandModifier.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\OperandNumComponents.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\OperandType.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\InstructionTestBoolean.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\InstructionTokenExtendedType.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\InterpolationMode.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\Number.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\NumberType.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\OpcodeHeader.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\ExtendedOperandType.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\GlobalFlags.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Shex\ConstantBufferAccessPattern.h">
+      <Filter>src\chunks\shex</Filter>
+    </ClInclude>
+    <ClInclude Include="Fwd\raw_ptr.hpp">
+      <Filter>src\fwd</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunks\Spdb\ShaderPassDebugChunk.h" />
+    <ClInclude Include="Util\DXGIFormat.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="DxbcContainer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="DxbcContainerHeader.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\DxbcChunk.cpp">
+      <Filter>src\chunks</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\ComponentMask.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\Primitive.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\PrimitiveTopology.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\ProgramType.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\ResourceReturnType.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\ShaderVersion.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\TessellatorDomain.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\TessellatorOutputPrimitive.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Common\TessellatorPartitioning.cpp">
+      <Filter>src\chunks\common</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Ifce\ClassInstance.cpp">
+      <Filter>src\chunks\ifce</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Ifce\ClassType.cpp">
+      <Filter>src\chunks\ifce</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Ifce\InterfacesChunk.cpp">
+      <Filter>src\chunks\ifce</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Ifce\InterfaceSlot.cpp">
+      <Filter>src\chunks\ifce</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ConstantBuffer.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ConstantBufferType.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ResourceBinding.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ResourceDefinitionChunk.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ShaderInputType.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ShaderResourceViewDimension.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ShaderType.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ShaderTypeMember.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ShaderVariable.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ShaderVariableClass.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Rdef\ShaderVariableType.cpp">
+      <Filter>src\chunks\rdef</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Sdbg\DebuggingChunk.cpp">
+      <Filter>src\chunks\sdbg</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Sfi0\Sfi0Chunk.cpp">
+      <Filter>src\chunks\sfi0</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Stat\StatisticsChunk.cpp">
+      <Filter>src\chunks\stat</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Xsgn\InputOutputSignatureChunk.cpp">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Xsgn\InputSignatureChunk.cpp">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Xsgn\Name.cpp">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Xsgn\OutputSignatureChunk.cpp">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Xsgn\PatchConstantSignatureChunk.cpp">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Xsgn\RegisterComponentType.cpp">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Xsgn\SignatureParameterDescription.cpp">
+      <Filter>src\chunks\xsgn</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\BytecodeReader.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Decoder.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\GeometryShaderMaxOutputVertexCountDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\GeometryShaderOutputPrimitiveTopologyDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\GlobalFlagsDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\HullShaderForkPhaseInstanceCountDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\HullShaderMaxTessFactorDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ImmediateConstantBufferDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ConstantBufferDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ControlPointCountDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\CustomDataToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\DeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\TempRegisterDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\TessellatorDomainDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\TessellatorOutputPrimitiveDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\TessellatorPartitioningDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ThreadGroupDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\TypedUnorderedAccessViewDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\UnorderedAccessViewDeclarationTokenBase.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ResourceReturnTypeToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\SamplerDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ShaderMessageDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\StructuredShaderResourceViewDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\StructuredThreadGroupSharedMemoryDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\StructuredUnorderedAccessViewDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\Operand.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\OperandIndex.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\OutputRegisterDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\PixelShaderInputRegisterDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\RawShaderResourceViewDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\RawThreadGroupSharedMemoryDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\RawUnorderedAccessViewDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ResourceDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\ImmediateDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\IndexableTempRegisterDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\IndexingRangeDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\InputRegisterDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\InstructionToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\InterfaceDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\NameToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\OpcodeToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\FunctionBodyDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\FunctionTableDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\GeometryShaderInputPrimitiveDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Tokens\GeometryShaderInstanceCountDeclarationToken.cpp">
+      <Filter>src\chunks\shex\tokens</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\SyncFlags.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\SystemValueName.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\ResourceDimension.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\SamplerMode.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\ShaderProgramChunk.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\OpcodeType.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Operand4ComponentName.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\OperandType.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\InstructionTestBoolean.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\InterpolationMode.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\Number.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\GlobalFlags.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Shex\ConstantBufferAccessPattern.cpp">
+      <Filter>src\chunks\shex</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunks\Spdb\ShaderPassDebugChunk.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\DXGIFormat.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
