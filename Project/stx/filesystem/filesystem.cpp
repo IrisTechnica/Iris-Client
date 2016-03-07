@@ -3,6 +3,7 @@
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp> // is_any_of
 #include "filesystem.h"
+#include <boost/filesystem.hpp>
 
 namespace stx
 {
@@ -30,9 +31,9 @@ namespace stx
 
 					info.timestamp = unicode::ToTString(wss.str());
 					info.size = fs::file_size(filepath);
-					info.name = filepath.filename().string();
+					info.name = unicode::ToTString(filepath.filename().string());
 					info.path = filepath;
-					info.extension = filepath.filename().extension().string();
+					info.extension = unicode::ToTString(filepath.filename().extension().string());
 
 					ret.push_back(info);
 				}
@@ -44,7 +45,7 @@ namespace stx
 		{
 			std::vector<tstring> result;
 			boost::algorithm::split(result, filename, boost::is_any_of("."));
-			return result.empty() ? "" : *(result.end() - 1);
+			return result.empty() ? _T("") : *(result.end() - 1);
 		}
 
 		const boost::filesystem::path& safe_path(const boost::filesystem::path & path)

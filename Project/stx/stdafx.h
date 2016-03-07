@@ -5,7 +5,7 @@
 
 #include "stx/tstring_symbol.hpp"
 
-
+#include "typedef.h"
 
 #include <boost/program_options.hpp>
 #include <vector>

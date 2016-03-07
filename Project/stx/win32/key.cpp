@@ -1,6 +1,7 @@
 #include "../range.hpp"
 #include "window.h"
 #include "key.hpp"
+#include "../typedef.h"
 
 key::key()
 {
@@ -109,7 +110,7 @@ void key::InternalUpdateRawInput(HRAWINPUT input_handle)
 
 	if (raw->header.dwType == RIM_TYPEKEYBOARD && raw->data.keyboard.VKey < 255)
 	{
-		auto format = boost::format(TEXT(" Kbd: make=%04x Flags:%04x Reserved:%04x ExtraInformation:%08x, msg=%04x VK=%04x \n"))
+		auto format = boost::tformat(TEXT(" Kbd: make=%04x Flags:%04x Reserved:%04x ExtraInformation:%08x, msg=%04x VK=%04x \n"))
 			% raw->data.keyboard.MakeCode
 			% raw->data.keyboard.Flags
 			% raw->data.keyboard.Reserved

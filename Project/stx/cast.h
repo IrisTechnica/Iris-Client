@@ -26,7 +26,7 @@ Target flexible_cast(Source src)
 template <typename Target, typename Source>
 inline Target flexible_cast(const enumerable4<Source> &arg)
 {
-	return (boost::format("%1% %2% %3% %4%") % arg.x % arg.y % arg.z % arg.w).str();
+	return (boost::tformat(_T("%1% %2% %3% %4%")) % arg.x % arg.y % arg.z % arg.w).str();
 }
 
 template <class Target, class Source>

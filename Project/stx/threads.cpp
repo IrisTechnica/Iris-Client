@@ -26,7 +26,7 @@ void Threads::put_idles(std::unordered_map<tstring, std::function<void()>>& idle
 		}
 		else {
 			// !!warning already idle_workers has key
-			stx::logger::Warning("[Therads] %1% already has key. func is swaped.", key);
+			stx::logger::Warning(_T("[Therads] %1% already has key. func is swaped."), key);
 			idle_workers[key] = func;
 		}
 	}

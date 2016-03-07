@@ -87,7 +87,7 @@ public:
 
 
 	// ウィンドウを表示する前に呼び出す
-	generic_handle AddControl(tstring classname, tstring controlname, DWORD controlstyle, boost::filesystem::path library = "", MessageProc initialize_callback = nullptr);
+	generic_handle AddControl(tstring classname, tstring controlname, DWORD controlstyle, boost::filesystem::path library = _T(""), MessageProc initialize_callback = nullptr);
 	void FlushControl(); // コントロールの実体生成
 	void MoveControl(generic_handle handle, int4 offset); // サイズ変更もこれを使う
 	void ChangeMoveMethod(generic_handle handle, MessageProc proc);

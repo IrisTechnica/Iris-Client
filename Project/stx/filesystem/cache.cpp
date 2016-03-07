@@ -56,7 +56,7 @@ namespace stx
 					rfstream ifs(filename, std::ios::binary);
 					if (ifs.fail())
 					{
-						stx::logger::Error("ファイル読み込み失敗 failename:%s", filename);
+						stx::logger::Error(_T("ファイル読み込み失敗 failename:%s"), filename);
 					}
 					std::istreambuf_iterator<uint8_t> it(ifs);
 					std::istreambuf_iterator<uint8_t> last;
@@ -82,7 +82,7 @@ namespace stx
 				rfstream ifs(filename, std::ios::binary);
 				if (ifs.fail())
 				{
-					stx::logger::Error("ファイル読み込み失敗 failename:%s", filename);
+					stx::logger::Error(_T("ファイル読み込み失敗 failename:%s"), filename);
 				}
 				std::istreambuf_iterator<uint8_t> it(ifs);
 				std::istreambuf_iterator<uint8_t> last;
