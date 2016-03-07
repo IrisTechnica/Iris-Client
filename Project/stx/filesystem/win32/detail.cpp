@@ -81,7 +81,7 @@ namespace stx
 
 		const tstring get_current_directory()
 		{
-			return boost::filesystem::current_path().string();
+			return unicode::ToTString(boost::filesystem::current_path().string());
 		}
 
 		void set_current_directory(const tstring & path)
@@ -165,7 +165,7 @@ namespace stx
 
 				auto handle = FindFirstChangeNotification(path.c_str(), true, filter);
 				if (handle == INVALID_HANDLE_VALUE)
-					stx::logger::Error("can't monitor change of folder at %1%.", path);
+					stx::logger::Error(_T("can't monitor change of folder at %1%."), path);
 				while (1)
 				{
 					
@@ -176,7 +176,7 @@ namespace stx
 					for (auto i : stx::range(10))std::this_thread::sleep_for(std::chrono::milliseconds(100));
 					if (!FindNextChangeNotification(handle))
 					{
-						stx::logger::Info("end monitor : %1%", path);
+						stx::logger::Info(_T("end monitor : %1%"), path);
 						break;
 					}
 				}

@@ -8,12 +8,13 @@
 #include "cast.h"
 #include "singleton.hpp"
 #include "filesystem/filesystem.h"
+#include "typedef.h"
 
 namespace stx
 {
 
 using boost::filesystem::path;
-using ptree = boost::property_tree::basic_ptree<tstring, tstring>;
+using tptree = boost::property_tree::tptree;
 class config_file :
 	 public refered_singleton<config_file>
 {
@@ -21,7 +22,7 @@ public:
 	class refered_config_file;
 
 private:
-	ptree	tree_;
+	tptree	tree_;
 	path	relpath_;
 
 public:
@@ -57,7 +58,7 @@ public:
 		if (exists(relpath_))
 			read_json(relpath_.string(), tree_);
 		else
-			tree_ = ptree();
+			tree_ = tptree();
 	}
 
 	refered_config_file operator [](tstring path)
@@ -66,7 +67,7 @@ public:
 	}
 
 
-	const ptree& get_child(tstring path)
+	const tptree& get_child(tstring path)
 	{
 		return tree_.get_child(path);
 	}
@@ -89,11 +90,11 @@ public:
 		typedef refered_config_file this_type;
 
 		config_file* refered_config_;
-		ptree* refered_tree_;
+		tptree* refered_tree_;
 		const tstring path_;
 
 	public:
-		refered_config_file(config_file* config,ptree* tree,const tstring path) :
+		refered_config_file(config_file* config,tptree* tree,const tstring path) :
 			refered_config_(config),
 			refered_tree_(tree),
 			path_(path)
@@ -130,7 +131,7 @@ public:
 		}
 
 		template<>
-		this_type& operator << <ptree>(const ptree& tree)
+		this_type& operator << <tptree>(const tptree& tree)
 		{
 			refered_tree_->put_child(path_, tree);
 			refered_config_->save();

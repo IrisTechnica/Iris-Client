@@ -2,6 +2,8 @@
 #include "Window.h"
 #include "key.hpp"
 #include "../unicode.hpp"
+#include "../typedef.h"
+#include "../config_file.hpp"
 
 namespace win32
 {
@@ -57,14 +59,14 @@ HINSTANCE BaseWindow::GethInstance()
 
 tstring BaseWindow::GetName()
 {
-	std::array<char,256> buf;
+	std::array<TCHAR,256> buf;
 	GetClassName(this->myhandle_, buf.data(), buf.size());
 	return tstring(buf.data());
 }
 
 tstring BaseWindow::GetTitle()
 {
-	std::array<char, 256> buf;
+	std::array<TCHAR, 256> buf;
 	GetWindowText(this->myhandle_, buf.data(), buf.size());
 	return tstring(buf.data());
 }
@@ -137,7 +139,7 @@ generic_handle BaseWindow::AddControl(tstring classname, tstring controlname, DW
 
 		BaseControl control;
 
-		control.Load(library.string());
+		control.Load(unicode::ToTString(library.string()));
 
 		control.handle = CreateWindowEx(
 			0,
@@ -376,10 +378,10 @@ void BaseWindow::SavePlacement(int2 pos)
 	if (IsIconic(this->Get()))
 		return;
 
-	boost::property_tree::path config_path = "app";
+	boost::property_tree::tpath config_path = _T("app");
 	config_path /= this->classname_;
-	auto place_path = (config_path / "place").dump();
-	auto maximized_path = (config_path / "maximized").dump();
+	auto place_path = unicode::ToTString((config_path / _T("place")).dump());
+	auto maximized_path = unicode::ToTString((config_path / _T("maximized")).dump());
 
 	stx::config_file::GetRefInstance()[place_path] << place;
 	stx::config_file::GetRefInstance()[maximized_path] << maximized;
@@ -388,10 +390,10 @@ void BaseWindow::SavePlacement(int2 pos)
 
 void BaseWindow::LoadPlacement()
 {
-	boost::property_tree::path config_path = "app";
+	boost::property_tree::tpath config_path = _T("app");
 	config_path /= this->classname_;
-	auto place_path = (config_path / "place").dump();
-	auto maximized_path = (config_path / "maximized").dump();
+	auto place_path = unicode::ToTString((config_path / _T("place")).dump());
+	auto maximized_path = unicode::ToTString((config_path / _T("maximized")).dump());
 
 	int4 place = stx::config_file::GetRefInstance()[place_path].get_default<int4>({ 0,0,-1,-1 });
 	bool maximized = stx::config_file::GetRefInstance()[maximized_path].get_default<bool>(false);

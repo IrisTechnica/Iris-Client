@@ -71,7 +71,7 @@ namespace stx
 			std::exception exception;	// エラーが存在する場合、値が格納される
 			SequencerHandle() :
 				count(0),
-				handlename(""),
+				handlename(_T("")),
 				exception()
 			{}
 		};

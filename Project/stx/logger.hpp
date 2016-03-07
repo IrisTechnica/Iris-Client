@@ -23,6 +23,8 @@
 #define WriteDebugString(str) 
 #endif
 
+#include "typedef.h"
+
 namespace stx
 {
 
@@ -74,13 +76,13 @@ class logger {
             return unicode::ToTString(to_iso_extended_string(now));
 		}
 
-		inline std::string GetLogFileName() const
+		inline tstring GetLogFileName() const
 		{
 			using namespace boost::posix_time;
 			ptime now = second_clock::local_time();
-			std::string date_string = to_iso_extended_string(now);
-			boost::algorithm::replace_all(date_string, ":", "_");
-            return "log_" + date_string + ".txt";
+			tstring date_string = unicode::ToTString(to_iso_extended_string(now));
+			boost::algorithm::replace_all(date_string, _T(":"), _T("_"));
+            return _T("log_") + date_string + _T(".txt");
 		}
 
     public:
@@ -173,11 +175,11 @@ class logger {
 
 		void __write_out(unsigned short color, const tstring &time, const tstring &prefix, const tstring &content)
 		{
-			std::cout << unicode::ToTString(time) << std::flush;
+			tcout << unicode::ToTString(time) << std::flush;
 			set_color_(color);
-			std::cout << unicode::ToString(prefix) << std::flush;
+			tcout << unicode::ToTString(prefix) << std::flush;
 			clear_color_();
-			std::cout << unicode::ToTString(content) << std::flush;
+			tcout << unicode::ToTString(content) << std::flush;
 			auto out = time + prefix + content;
 			ofs_ << unicode::ToString(out) << std::flush;
 			WriteDebugString(out);
@@ -201,7 +203,7 @@ class logger {
 		std::function<void(unsigned short)> set_color_; //only windows
 		std::function<void()> clear_color_;				//only windows
 
-		const tstring path_ = "./log/";
+		const tstring path_ = TEXT("./log/");
 
 		bool enable_log_ = true;
 
@@ -229,8 +231,8 @@ class logger {
 		public:
 			custom_scope_message(tstring begin, tstring end, tstring msg)
 			{
-				Info("[" + begin + " " + msg + "]");
-				msg_ = "[" + end + " " + msg + "]";
+				Info(_T("[") + begin + _T(" ") + msg + _T("]"));
+				msg_ = _T("[") + end + _T(" ") + msg + _T("]");
 			}
 			~custom_scope_message()
 			{
@@ -250,7 +252,7 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_("Begin", "End", msg){};
+				csm_(_T("Begin"), _T("End"), msg){};
 			~scope_message(){};
 		};
 
@@ -261,7 +263,7 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_("Begin", "Finish", msg){};
+				csm_(_T("Begin"), _T("Finish"), msg){};
 			~scope_message(){};
 		};
 
@@ -272,7 +274,7 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_("Restart", "End", msg){};
+				csm_(_T("Restart"), _T("End"), msg){};
 			~scope_message(){};
 		};
 
@@ -283,7 +285,7 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_("Start", "Complete", msg){};
+				csm_(_T("Start"), _T("Complete"), msg){};
 			~scope_message(){};
 		};
 

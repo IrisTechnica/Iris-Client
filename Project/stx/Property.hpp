@@ -43,6 +43,7 @@ public:
 public:
 	operator const T& () const { return this->Get(this->_value); }
 	const T*& operator -> () const { return &this->Get(this->_value); }
+	operator T() { return this->Get(this->value); }
 
 	WritableProperty<T, Getter, Setter>& operator = (const T& var) { this->Set(this->_value, var); return *this; }
 };
@@ -58,4 +59,5 @@ public:
 public:
 	operator const T& () const { return this->Get(this->_value); }
 	const T& operator -> () const { return this->Get(this->_value); }
+	operator const T() const { return this->Get(this->_value); }
 };
