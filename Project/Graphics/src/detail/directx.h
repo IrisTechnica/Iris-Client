@@ -1,8 +1,8 @@
 #pragma once
 
 #include <boost/utility.hpp>
-#include "../../win32/window.h"
-#include "../../singleton.hpp"
+#include <stx/win32/window.h>
+#include <stx/singleton.hpp>
 
 #include <D3D11.h>
 #include <DXGI.h>
@@ -10,9 +10,9 @@
 
 #include <memory>
 #include <vector>
-#include "../../com_ptr.h"
+#include <stx/com_ptr.h>
 
-#include "../../filesystem/cache.h"
+#include <stx/filesystem/cache.h>
 #include <boost/thread.hpp>
 
 #include <mutex>
