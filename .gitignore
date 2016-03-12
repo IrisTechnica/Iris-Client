@@ -5,3 +5,5 @@ project/packages/
 desktop.ini
 *.opendb
 *.sdf
+project/Graphics/Debug
+project/Graphics/Release
