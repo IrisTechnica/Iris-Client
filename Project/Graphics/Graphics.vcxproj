@@ -112,6 +112,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\canvas.h" />
     <ClInclude Include="src\detail\directx.h" />
     <ClInclude Include="src\graphics.h" />
   </ItemGroup>
@@ -119,6 +120,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\canvas.cpp" />
     <ClCompile Include="src\graphics.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
