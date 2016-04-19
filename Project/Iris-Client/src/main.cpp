@@ -1,4 +1,5 @@
 
+#include <stx/filesystem/cache.h>
 
 #include <boost/utility.hpp>
 
