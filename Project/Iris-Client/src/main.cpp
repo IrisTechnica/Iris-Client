@@ -1,5 +1,7 @@
 
+#include <stx/config.hpp>
 #include <stx/filesystem/cache.h>
+#include <Graphics/config.hpp>
 
 #include <boost/utility.hpp>
 
