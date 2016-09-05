@@ -2,7 +2,6 @@
 #include <stx/Property.hpp>
 #include <stx/singleton.hpp>
 #include "detail\directx.h"
-#include "canvas.h"
 
 ///////////////////////////////////////////////////////////////////////
 //
@@ -15,12 +14,18 @@ class Graphics : public stx::singleton<Graphics>
 {
 #pragma region Internal Data Members
 private:
+	// dxgi devices
+	dx11::dxgiadapter adaptor;
+	dx11::dxgiswapchain	swapChain;
+
+	// native devices
 	dx11::device device;
 	dx11::devicecontext deviceContext;
-	dx11::dxgiswapchain	swapChain;
 	dx11::display_format displayFormat;
 	dx11::feature_level	featureLevel;
-	Canvas canvas;
+
+	// infomation datas
+	dx11::displaymode_desclist desclist;
 
 	bool isFullScreen = false;
 #pragma endregion
@@ -32,7 +37,6 @@ public:
 	ReadOnlyProperty<dx11::dxgiswapchain> SwapChain = swapChain;
 	ReadOnlyProperty<dx11::display_format> DisplayFormat = displayFormat;
 	ReadOnlyProperty<dx11::feature_level> FeatureLevel = featureLevel;
-	ReadOnlyProperty<Canvas> Canvas = canvas;
 #pragma endregion
 
 #pragma region Public Methods
@@ -47,11 +51,12 @@ public:
 #pragma region Private Methods
 private:
 
+	void CreateAdaptor();
 	void CreateDevice();
 
 	void InitDisplayMode(const dx11::display_format& format);
 
-	dx11::displaymode_desc* FindFitDesc(float2 size);
+	const dx11::displaymode_desc& FindFitDesc(float2 size);
 
 #pragma endregion
 };

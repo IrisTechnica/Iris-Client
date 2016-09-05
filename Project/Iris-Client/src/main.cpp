@@ -1,20 +1,14 @@
 
+#define DEBUGCONSOLE_SHOW
+
 #include <stx/config.hpp>
-#include <stx/filesystem/cache.h>
 #include <Graphics/config.hpp>
+#include <stx/entrypoint.hpp>
 
-#include <boost/utility.hpp>
+#include "core.h"
 
-class a : boost::noncopyable {
-public:
-	a (){}
-	~a(){}
-protected:
-private:
-};
-void main() {
-
-	volatile a b;
-
-
+ENTRYPOINT
+{
+	Core core;
+	core.Run();
 }

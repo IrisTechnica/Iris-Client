@@ -1,6 +1,8 @@
 #pragma once
 #include <xstddef>
 #include <boost/mpl/or.hpp>
+#include <type_traits>
+#include <memory>
 
 /////////////////////////////////////////////////////
 // Begin of stx
@@ -66,25 +68,38 @@ namespace stx{
 	};
 
 
-	// temporary impl
-	namespace detail{
+	//// temporary impl
+	//namespace detail{
+	//	template<class U>
+	//	class has_arrow_impl{
+	//		typedef char yes_type;
+	//		typedef struct { char c[8]; } no_type;
+
+	//		template< typename U >
+	//		static yes_type check(U *, decltype(&U::operator->) * = NULL);
+
+
+	//		template< typename U >
+	//		static no_type check(...);
+	//	public:
+	//		static bool const value = sizeof(check<U>(NULL)) == sizeof(yes_type);
+	//	};
+	//}
+	//template<typename T>
+	//struct has_arrow : boost::mpl::bool_ < detail::has_arrow_impl<T>::value > {};
+	
+	// C++14ãKäiÇ…èëÇ´ä∑Ç¶
+	template <class T>
+	struct has_arrow
+	{
+	private:
 		template<class U>
-		class has_arrow_impl{
-			typedef char yes_type;
-			typedef struct { char c[8]; } no_type;
-
-			template< typename U >
-			static yes_type check(U *, decltype(&U::operator->) * = NULL);
-
-
-			template< typename U >
-			static no_type check(...);
-		public:
-			static bool const value = sizeof(check<U>(NULL)) == sizeof(yes_type);
-		};
-	}
-	template<typename T>
-	struct has_arrow : boost::mpl::bool_ < detail::has_arrow_impl<T>::value > {};
+		static auto check(U v)-> decltype(v.operator->(), std::true_type()) {};
+		static auto check(...)-> decltype(std::false_type()) {};
+	public:
+		typedef decltype(check(std::declval<T>())) type;
+		static constexpr bool value = type::value;
+	};
 
 	template<class _Ty>
 	struct _Is_objective_pointer
@@ -188,6 +203,47 @@ namespace stx{
 	{
 
 	};
+
+	template<class T, class = void>
+	struct accessible_impl
+	{
+		typedef T type;
+		static const type access(const T& value) { return value; }
+	};
+
+	template<class T>
+	struct accessible_impl<T, stx::enable_if_t<!std::is_pointer<T>::value && !stx::has_arrow<T>::value>>
+	{
+		typedef T& type;
+		static const type access(const T& value) { return value; }
+	};
+
+	template<class T>
+	struct accessible_impl<T, stx::enable_if_t<std::is_pointer<T>::value>>
+	{
+		typedef T& type;
+		static const type access(const type value) { return value; }
+	};
+
+	template<class T>
+	struct accessible_impl<T, stx::enable_if_t<stx::has_arrow<T>::value>>
+	{
+	private:
+		class _impl
+		{
+		public:
+			template<class U>
+			static auto get_return(U v) -> decltype(v.operator->()) {};
+
+		};
+	public:
+		typedef typename decltype(_impl::get_return(std::declval<T>())) type;
+		static type access(const T& value) { return value.operator->(); };
+	};
+
+	template<class T>
+	struct accessible : public accessible_impl<T>
+	{};
 
 
 }

@@ -120,6 +120,11 @@ namespace stx
 			return interface_;
 		}
 
+		_Ty* operator->() const
+		{
+			return interface_;
+		}
+
 		_Ty& operator*()
 		{
 			return *interface_;

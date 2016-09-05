@@ -22,6 +22,6 @@
 #define CHARA char
 #define CHARW wchar_t
 
-#include <IrisClient/Macro.h>
+#include "macro.h"
 #pragma warning(pop)
 #endif

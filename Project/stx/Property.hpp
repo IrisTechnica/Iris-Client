@@ -1,4 +1,5 @@
 #pragma once
+#include <stx/typetraits/typetraits.hpp>
 
 template <typename T>
 class Property
@@ -32,7 +33,7 @@ struct SimplePropertyGetter
 };
 
 // TODO enable if ‚Åƒ|ƒCƒ“ƒ^‚Æ’Êí‚ğU‚è•ª‚¯‚é
-template <typename T, class Getter = SimplePropertyGetter<T>, class Setter = SimplePropertySetter<T>>
+template <typename T, class E = stx::accessible<T>::type, class Getter = SimplePropertyGetter<T>, class Setter = SimplePropertySetter <T>>
 class WritableProperty : public Property<T>, private Getter, private Setter
 {
 public:
@@ -42,7 +43,7 @@ public:
 
 public:
 	operator const T& () const { return this->Get(this->_value); }
-	const T*& operator -> () const { return &this->Get(this->_value); }
+	const auto& operator -> () { return stx::accessible<T>::access(&this->Get(this->_value)); }
 	operator T() { return this->Get(this->value); }
 
 	WritableProperty<T, Getter, Setter>& operator = (const T& var) { this->Set(this->_value, var); return *this; }
@@ -52,12 +53,17 @@ template <typename T, class Getter = SimplePropertyGetter<T>>
 class ReadOnlyProperty : public Property<T>, private Getter
 {
 public:
+	typedef typename stx::accessible<T>::type value_type;
+public:
 	ReadOnlyProperty(T& value) : Property<T>(value) {}
 	ReadOnlyProperty(const ReadOnlyProperty& ref) : Property<T>(ref) {}
 	virtual ~ReadOnlyProperty() {}
 
 public:
+	const value_type operator -> () { return stx::accessible<T>::access(this->Get(this->_value)); }
+	const T& operator()() const { return this->Get(this->_value); }
 	operator const T& () const { return this->Get(this->_value); }
-	const T& operator -> () const { return this->Get(this->_value); }
 	operator const T() const { return this->Get(this->_value); }
+	template<class R>
+	bool operator==(R right) const { return this->Get(this->_value) == right; }
 };

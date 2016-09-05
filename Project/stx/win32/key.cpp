@@ -6,6 +6,7 @@
 key::key()
 {
 	trigger_.fill(false);
+	trigger_next_.fill(false);
 	press_.fill(false);
 	release_.fill(false);
 	mousetrigger_.fill(false);

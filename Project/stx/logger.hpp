@@ -28,19 +28,19 @@
 namespace stx
 {
 
-class logger {
-        // Singleton
+	class logger {
+		// Singleton
 
-	enum color_magic_ : unsigned short
-	{
-		green	= 0x0a,
-		red		= 0x0c,
-		magenta = 0x0d,
-		white	= 0x0f,
-	};
+		enum color_magic_ : unsigned short
+		{
+			green = 0x0a,
+			red = 0x0c,
+			magenta = 0x0d,
+			white = 0x0f,
+		};
 
-    private:
-        inline logger() {
+	private:
+		inline logger() {
 			using namespace boost::filesystem;
 
 			if (!exists(path_)) {
@@ -49,31 +49,31 @@ class logger {
 
 			ofs_.open(path_ + GetLogFileName());
 
-			#ifdef _WIN32
-				setlocale(LC_ALL, "japanese");
+#ifdef _WIN32
+			setlocale(LC_ALL, "japanese");
 
-				console_ = GetStdHandle(STD_OUTPUT_HANDLE);
-			#endif
+			console_ = GetStdHandle(STD_OUTPUT_HANDLE);
+#endif
 
-				set_color_ = [this](unsigned short col){
-			#ifdef _WIN32
-					SetConsoleTextAttribute(console_, col);
-			#endif
-				};
-				clear_color_ = [this](){
-			#ifdef _WIN32
-					SetConsoleTextAttribute(console_, logger::white);
-			#endif
-				};
+			set_color_ = [this](unsigned short col) {
+#ifdef _WIN32
+				SetConsoleTextAttribute(console_, col);
+#endif
+			};
+			clear_color_ = [this]() {
+#ifdef _WIN32
+				SetConsoleTextAttribute(console_, logger::white);
+#endif
+			};
 		}
 
-        virtual ~logger() {}
+		virtual ~logger() {}
 
 		inline tstring GetTimeString() const
 		{
 			using namespace boost::posix_time;
 			ptime now = second_clock::local_time();
-            return unicode::ToTString(to_iso_extended_string(now));
+			return unicode::ToTString(to_iso_extended_string(now));
 		}
 
 		inline tstring GetLogFileName() const
@@ -82,61 +82,61 @@ class logger {
 			ptime now = second_clock::local_time();
 			tstring date_string = unicode::ToTString(to_iso_extended_string(now));
 			boost::algorithm::replace_all(date_string, _T(":"), _T("_"));
-            return _T("log_") + date_string + _T(".txt");
+			return _T("log_") + date_string + _T(".txt");
 		}
 
-    public:
-        static void Info(const tstring& format) {
-            if(__is_enable_log())getInstance().Log(white,_T("INFO: "), format);
-        }
+	public:
+		static void Info(const tstring& format) {
+			if (__is_enable_log())getInstance().Log(white, _T("INFO: "), format);
+		}
 
-        template<class ... T1>
-        static void Info(const tstring& format, const T1&... t1) {
-			if (__is_enable_log())getInstance().Log(white,_T("INFO: "), format, t1...);
-        }
+		template<class ... T1>
+		static void Info(const tstring& format, const T1&... t1) {
+			if (__is_enable_log())getInstance().Log(white, _T("INFO: "), format, t1...);
+		}
 
 
-        static void Error(const tstring& format) {
-			if (__is_enable_log())getInstance().Log(red,_T("ERROR: "), format);
+		static void Error(const tstring& format) {
+			if (__is_enable_log())getInstance().Log(red, _T("ERROR: "), format);
 			assert(0);
 		}
 
-        template<class ... T1>
-        static void Error(const tstring& format, const T1&... t1) {
-			if (__is_enable_log())getInstance().Log(red,_T("ERROR: "), format, t1...);
+		template<class ... T1>
+		static void Error(const tstring& format, const T1&... t1) {
+			if (__is_enable_log())getInstance().Log(red, _T("ERROR: "), format, t1...);
 			assert(0);
-        }
+		}
 
 		static void Warning(const tstring& format) {
-			if (__is_enable_log())getInstance().Log(magenta,_T("WARNING: "), format);
-		#ifdef _DEBUG
-		#endif
+			if (__is_enable_log())getInstance().Log(magenta, _T("WARNING: "), format);
+#ifdef _DEBUG
+#endif
 		}
 
 		template<class ... T1>
 		static void Warning(const tstring& format, const T1&... t1) {
-			if (__is_enable_log())getInstance().Log(magenta,_T("WARNING: "), format, t1...);
+			if (__is_enable_log())getInstance().Log(magenta, _T("WARNING: "), format, t1...);
 		}
 
 
-        static void Debug(const tstring& format) {
-		#ifdef _DEBUG
-			if (__is_enable_log())getInstance().Log(green,_T("DEBUG: "), format);
-		#endif
-        }
+		static void Debug(const tstring& format) {
+#ifdef _DEBUG
+			if (__is_enable_log())getInstance().Log(green, _T("DEBUG: "), format);
+#endif
+		}
 
-        template<class ... T1>
-        static void Debug(const tstring& format, const T1&... t1) {
-		#ifdef _DEBUG
-			if (__is_enable_log())getInstance().Log(green,_T("DEBUG: "), format, t1...);
-		#endif
-        }
+		template<class ... T1>
+		static void Debug(const tstring& format, const T1&... t1) {
+#ifdef _DEBUG
+			if (__is_enable_log())getInstance().Log(green, _T("DEBUG: "), format, t1...);
+#endif
+		}
 
 		static void Return(int num = 1)
 		{
 			for (int idx = 0; idx < num; idx++)
 			{
-				getInstance().Log(white,_T(""),_T(""));
+				getInstance().Log(white, _T(""), _T(""));
 			}
 		}
 
@@ -146,25 +146,25 @@ class logger {
 		}
 
 	private:
-        typedef boost::basic_format<TCHAR, std::char_traits<TCHAR>, std::allocator<TCHAR>> tformat;
+		typedef boost::basic_format<TCHAR, std::char_traits<TCHAR>, std::allocator<TCHAR>> tformat;
 
-        static logger& getInstance() {
-            static logger instance;
-            return instance;
-        }
+		static logger& getInstance() {
+			static logger instance;
+			return instance;
+		}
 
 		static bool __is_enable_log()
 		{
 			return getInstance().enable_log_;
 		}
 
-        void Log(unsigned short color, const tstring& prefix, const tstring& format) {
+		void Log(unsigned short color, const tstring& prefix, const tstring& format) {
 			auto time = GetTimeString() + _T(">  ");
-            auto content =  format + _T("\n");
+			auto content = format + _T("\n");
 			__write_out(color, time, prefix, content);
 		}
 
-        template<class ... T1>
+		template<class ... T1>
 		void Log(unsigned short color, const tstring& prefix, const tstring& format, const T1&... t1) {
 			tformat format_data(format);
 			auto time = GetTimeString() + _T(">  ");
@@ -191,15 +191,15 @@ class logger {
 			return ref % t1;
 		}
 
-		template<class T1,class ... T2>
+		template<class T1, class ... T2>
 		tformat& __expand_vla(tformat& ref, const T1& t1, const T2&...t2)
 		{
 			ref % t1;
 			return __expand_vla(ref, t2...);
 		}
-		
+
 		std::ofstream ofs_;
-		
+
 		std::function<void(unsigned short)> set_color_; //only windows
 		std::function<void()> clear_color_;				//only windows
 
@@ -213,7 +213,7 @@ class logger {
 #endif
 
 
-	// extend classes
+		// extend classes
 	public:
 
 		enum message_type
@@ -252,8 +252,8 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_(_T("Begin"), _T("End"), msg){};
-			~scope_message(){};
+				csm_(_T("Begin"), _T("End"), msg) {};
+			~scope_message() {};
 		};
 
 		template <>
@@ -263,8 +263,8 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_(_T("Begin"), _T("Finish"), msg){};
-			~scope_message(){};
+				csm_(_T("Begin"), _T("Finish"), msg) {};
+			~scope_message() {};
 		};
 
 		template <>
@@ -274,8 +274,8 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_(_T("Restart"), _T("End"), msg){};
-			~scope_message(){};
+				csm_(_T("Restart"), _T("End"), msg) {};
+			~scope_message() {};
 		};
 
 		template <>
@@ -285,8 +285,8 @@ class logger {
 			custom_scope_message csm_;
 		public:
 			scope_message(tstring msg) :
-				csm_(_T("Start"), _T("Complete"), msg){};
-			~scope_message(){};
+				csm_(_T("Start"), _T("Complete"), msg) {};
+			~scope_message() {};
 		};
 
 	};

@@ -8,3 +8,5 @@ desktop.ini
 *.tlog
 *.idb
 Project/ipch/STX-7a427ed9/STX-b38a2b00.ipch
+*.ipch
+*.tmp
